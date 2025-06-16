@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<title>Quarto</title>
+	<link rel="icon" href="/games/img/quarto_icon.png">
+	<meta name="darkreader-lock">
+	<link rel="stylesheet" type="text/css" href="./css/index.css">
+</head>
+<body>
+    <div id="main">
+        <div id="board-superdiv" class="container">
+            <img id="board" src="./assets/board.png">
+            <img id="board-accent" src="./assets/spot_hd.png">
+            <div id="spots">
+                <div class="spot-container" onclick="selectSpot(this)"><img class="spot" src="assets/spot.png"></div>
+                <div class="spot-container" onclick="selectSpot(this)"><img class="spot" src="assets/spot.png"></div>
+                <div class="spot-container" onclick="selectSpot(this)"><img class="spot" src="assets/spot.png"></div>
+                <div class="spot-container" onclick="selectSpot(this)"><img class="spot" src="assets/spot.png"></div>
+                <div class="spot-container" onclick="selectSpot(this)"><img class="spot" src="assets/spot.png"></div>
+                <div class="spot-container" onclick="selectSpot(this)"><img class="spot" src="assets/spot.png"></div>
+                <div class="spot-container" onclick="selectSpot(this)"><img class="spot" src="assets/spot.png"></div>
+                <div class="spot-container" onclick="selectSpot(this)"><img class="spot" src="assets/spot.png"></div>
+                <div class="spot-container" onclick="selectSpot(this)"><img class="spot" src="assets/spot.png"></div>
+                <div class="spot-container" onclick="selectSpot(this)"><img class="spot" src="assets/spot.png"></div>
+                <div class="spot-container" onclick="selectSpot(this)"><img class="spot" src="assets/spot.png"></div>
+                <div class="spot-container" onclick="selectSpot(this)"><img class="spot" src="assets/spot.png"></div>
+                <div class="spot-container" onclick="selectSpot(this)"><img class="spot" src="assets/spot.png"></div>
+                <div class="spot-container" onclick="selectSpot(this)"><img class="spot" src="assets/spot.png"></div>
+                <div class="spot-container" onclick="selectSpot(this)"><img class="spot" src="assets/spot.png"></div>
+                <div class="spot-container" onclick="selectSpot(this)"><img class="spot" src="assets/spot.png"></div>
+            </div>
+        </div>
+        <div id="pieces-superdiv" class="container">
+            <div id="pieces">
+                <img id="piece_0000" class="piece" src="assets/piece_0000.png" onclick="selectPiece(this)">
+                <img id="piece_0001" class="piece" src="assets/piece_0001.png" onclick="selectPiece(this)">
+                <img id="piece_0002" class="piece" src="assets/piece_0002.png" onclick="selectPiece(this)">
+                <img id="piece_0003" class="piece" src="assets/piece_0003.png" onclick="selectPiece(this)">
+                <img id="piece_0004" class="piece" src="assets/piece_0004.png" onclick="selectPiece(this)">
+                <img id="piece_0005" class="piece" src="assets/piece_0005.png" onclick="selectPiece(this)">
+                <img id="piece_0006" class="piece" src="assets/piece_0006.png" onclick="selectPiece(this)">
+                <img id="piece_0007" class="piece" src="assets/piece_0007.png" onclick="selectPiece(this)">
+                <img id="piece_0008" class="piece" src="assets/piece_0008.png" onclick="selectPiece(this)">
+                <img id="piece_0009" class="piece" src="assets/piece_0009.png" onclick="selectPiece(this)">
+                <img id="piece_0010" class="piece" src="assets/piece_0010.png" onclick="selectPiece(this)">
+                <img id="piece_0011" class="piece" src="assets/piece_0011.png" onclick="selectPiece(this)">
+                <img id="piece_0012" class="piece" src="assets/piece_0012.png" onclick="selectPiece(this)">
+                <img id="piece_0013" class="piece" src="assets/piece_0013.png" onclick="selectPiece(this)">
+                <img id="piece_0014" class="piece" src="assets/piece_0014.png" onclick="selectPiece(this)">
+                <img id="piece_0015" class="piece" src="assets/piece_0015.png" onclick="selectPiece(this)">
+            </div>
+            <div id="selected">
+                <p id="selected-text">SELECTED</p>
+                <img id="selected-piece" src="assets/piece_0000.png">
+            </div>
+        </div>
+        <div id="turn-ribbon">
+            <p id="turn-text">NEXT TURN</p>
+        </div>
+    </div>
+</body>
+<script src="./js/index.js"></script>
+</html>
+
+
