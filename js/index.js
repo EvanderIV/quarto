@@ -273,7 +273,7 @@ function gameOverAnim() {
 
 
 
-if (isMobileUser) {
+if (isMobileUser || window.innerWidth < window.innerHeight) {
     document.getElementById("main").style.flexDirection = "column";
     ribbon.style.height = "20vmin";
     ribbonText.style.fontSize = "15vmin";
