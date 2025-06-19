@@ -43,6 +43,8 @@ const getPieceId = (element) => {
     return lastChild && lastChild.id ? parseInt(lastChild.id.substr(12)) : undefined;
 };
 
+let bSUPER_SCALE_MOD = 1.0;
+
 let Board = {
     spot00: "",
     spot10: "",
@@ -126,7 +128,7 @@ function selectPiece(element) {
     if (isMobileUser && !selectingSpot && zoom) {
         pSuper.style.height = "60%";
         bSuper.style.height = "40%";
-        bSuper.style.scale = "1.0";
+        bSuper.style.scale = 1.0 * bSUPER_SCALE_MOD;
         selectedContainer.style.marginTop = "0";
         zoom = false;
         return;
@@ -154,7 +156,7 @@ function selectPiece(element) {
     if (isMobileUser) {
         pSuper.style.height = "40%";
         bSuper.style.height = "60%";
-        bSuper.style.scale = "1.25";
+        bSuper.style.scale = 1.25 * bSUPER_SCALE_MOD;
     }
 }
 
@@ -163,13 +165,13 @@ function selectSpot(element) {
         if (zoom) {
             pSuper.style.height = "60%";
             bSuper.style.height = "40%";
-            bSuper.style.scale = "1.0";
+            bSuper.style.scale = 1.0 * bSUPER_SCALE_MOD;
             selectedContainer.style.marginTop = "0";
         }
         else {
             pSuper.style.height = "10%";
             bSuper.style.height = "90%";
-            bSuper.style.scale = "1.25";
+            bSuper.style.scale = 1.25 * bSUPER_SCALE_MOD;
             selectedContainer.style.marginTop = "50vmin";
         }
         zoom = !zoom;
@@ -183,7 +185,7 @@ function selectSpot(element) {
     selectedContainer.style.marginLeft = "-50vmin";
     piecesContainer.style.marginLeft = "0";
     for (let piece = 0; piece < pieces.length; piece++) {
-        if (isMobileUser) {
+        if (isMobileUser && (window.innerHeight / window.innerWidth > 16.01 / 9)) {
             pieces[piece].style.height = "30vmin";
         }
         else {
@@ -204,7 +206,7 @@ function selectSpot(element) {
     if (isMobileUser) {
         pSuper.style.height = "60%";
         bSuper.style.height = "40%";
-        bSuper.style.scale = "1.0";
+        bSuper.style.scale = 1.0 * bSUPER_SCALE_MOD;
     }    let board = Board;
     board.pull();
     if (board.evaluate()) {
@@ -270,10 +272,10 @@ function gameOverAnim() {
 
 
 
+if (window.innerWidth < window.innerHeight) isMobileUser = true;
 
 
-
-if (isMobileUser || window.innerWidth < window.innerHeight) {
+if (isMobileUser) {
     document.getElementById("main").style.flexDirection = "column";
     ribbon.style.height = "20vmin";
     ribbonText.style.fontSize = "15vmin";
@@ -287,6 +289,14 @@ if (isMobileUser || window.innerWidth < window.innerHeight) {
     piecesContainer.style.width = "100%";
     piecesContainer.style.height = "100%";
     piecesContainer.style.borderRadius = "5vmin 5vmin 0 0";
+    if (window.innerHeight / window.innerWidth < 16.01 / 9) {
+        console.log("Mobile user with < 16:9 aspect ratio: " + (window.innerHeight / window.innerWidth));
+        bSUPER_SCALE_MOD = 0.89;
+        bSuper.style.scale = bSUPER_SCALE_MOD;
+        for (let piece = 0; piece < pieces.length; piece++) {
+            pieces[piece].style.height = "25vmin";
+        }
+    }
 }
 
 
